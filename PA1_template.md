@@ -235,17 +235,50 @@ activityData_na.impute <- activityData %>%
   mutate(steps = ifelse(is.na(steps), daily_avg, steps)) %>%
   select(-daily_avg)
 #print out the first few rows of the imputed dataset
-kable(head(activityData_na.impute), format = "simple", col.names = c("Steps", "Date", "Interval"))
+kable(head(activityData_na.impute), format = "html", col.names = c("Steps", "Date", "Interval"))
 ```
 
-     Steps  Date          Interval
-----------  -----------  ---------
- 1.7169811  2012-10-01           0
- 0.3396226  2012-10-01           5
- 0.1320755  2012-10-01          10
- 0.1509434  2012-10-01          15
- 0.0754717  2012-10-01          20
- 2.0943396  2012-10-01          25
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> Steps </th>
+   <th style="text-align:left;"> Date </th>
+   <th style="text-align:right;"> Interval </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1.7169811 </td>
+   <td style="text-align:left;"> 2012-10-01 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.3396226 </td>
+   <td style="text-align:left;"> 2012-10-01 </td>
+   <td style="text-align:right;"> 5 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.1320755 </td>
+   <td style="text-align:left;"> 2012-10-01 </td>
+   <td style="text-align:right;"> 10 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.1509434 </td>
+   <td style="text-align:left;"> 2012-10-01 </td>
+   <td style="text-align:right;"> 15 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 0.0754717 </td>
+   <td style="text-align:left;"> 2012-10-01 </td>
+   <td style="text-align:right;"> 20 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2.0943396 </td>
+   <td style="text-align:left;"> 2012-10-01 </td>
+   <td style="text-align:right;"> 25 </td>
+  </tr>
+</tbody>
+</table>
 
 **4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day:** The values do not differ much from the previous estimates. 
 
@@ -254,28 +287,111 @@ df <- activityData_na.impute %>%
   group_by(date) %>% 
   summarize(total_daily_steps2 = sum(steps), median = median(steps), mean = mean(steps))
 #printing the first 15 rows of the data
-kable(head(df, 15), format = "simple")
+kable(head(df, 15), format = "html")
 ```
 
-
-
-date          total_daily_steps2     median       mean
------------  -------------------  ---------  ---------
-2012-10-01              10766.19   34.11321   37.38260
-2012-10-02                126.00    0.00000    0.43750
-2012-10-03              11352.00    0.00000   39.41667
-2012-10-04              12116.00    0.00000   42.06944
-2012-10-05              13294.00    0.00000   46.15972
-2012-10-06              15420.00    0.00000   53.54167
-2012-10-07              11015.00    0.00000   38.24653
-2012-10-08              10766.19   34.11321   37.38260
-2012-10-09              12811.00    0.00000   44.48264
-2012-10-10               9900.00    0.00000   34.37500
-2012-10-11              10304.00    0.00000   35.77778
-2012-10-12              17382.00    0.00000   60.35417
-2012-10-13              12426.00    0.00000   43.14583
-2012-10-14              15098.00    0.00000   52.42361
-2012-10-15              10139.00    0.00000   35.20486
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> date </th>
+   <th style="text-align:right;"> total_daily_steps2 </th>
+   <th style="text-align:right;"> median </th>
+   <th style="text-align:right;"> mean </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 2012-10-01 </td>
+   <td style="text-align:right;"> 10766.19 </td>
+   <td style="text-align:right;"> 34.11321 </td>
+   <td style="text-align:right;"> 37.38260 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-02 </td>
+   <td style="text-align:right;"> 126.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 0.43750 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-03 </td>
+   <td style="text-align:right;"> 11352.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 39.41667 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-04 </td>
+   <td style="text-align:right;"> 12116.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 42.06944 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-05 </td>
+   <td style="text-align:right;"> 13294.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 46.15972 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-06 </td>
+   <td style="text-align:right;"> 15420.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 53.54167 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-07 </td>
+   <td style="text-align:right;"> 11015.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 38.24653 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-08 </td>
+   <td style="text-align:right;"> 10766.19 </td>
+   <td style="text-align:right;"> 34.11321 </td>
+   <td style="text-align:right;"> 37.38260 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-09 </td>
+   <td style="text-align:right;"> 12811.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 44.48264 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-10 </td>
+   <td style="text-align:right;"> 9900.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 34.37500 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-11 </td>
+   <td style="text-align:right;"> 10304.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 35.77778 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-12 </td>
+   <td style="text-align:right;"> 17382.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 60.35417 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-13 </td>
+   <td style="text-align:right;"> 12426.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 43.14583 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-14 </td>
+   <td style="text-align:right;"> 15098.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 52.42361 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-15 </td>
+   <td style="text-align:right;"> 10139.00 </td>
+   <td style="text-align:right;"> 0.00000 </td>
+   <td style="text-align:right;"> 35.20486 </td>
+  </tr>
+</tbody>
+</table>
 
 ```r
 df %>% 
@@ -319,7 +435,7 @@ mutate(day_type = as.factor(ifelse(day_type <= 5, "Weekday", "Weekend")))  %>%
     plot.background = element_blank(),
     axis.text = element_text(colour = "black"),
     axis.title = element_text(colour = "black", face = "bold"),
-    plot.title = element_text(colour = "black", face = "bold", hjust = "1", size = 8),
+    plot.title = element_text(colour = "black", face = "bold", hjust = "1", size = 13),
     strip.background = element_rect(fill = "black"),
     strip.text = element_text(color = "white", face = "bold", hjust = 0.5)
   )

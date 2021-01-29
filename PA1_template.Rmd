@@ -120,7 +120,7 @@ activityData_na.impute <- activityData %>%
   mutate(steps = ifelse(is.na(steps), daily_avg, steps)) %>%
   select(-daily_avg)
 #print out the first few rows of the imputed dataset
-kable(head(activityData_na.impute), format = "simple", col.names = c("Steps", "Date", "Interval"))
+kable(head(activityData_na.impute), format = "html, col.names = c("Steps", "Date", "Interval"))
 ```
 
 **4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day:** The values do not differ much from the previous estimates. 
@@ -129,7 +129,7 @@ df <- activityData_na.impute %>%
   group_by(date) %>% 
   summarize(total_daily_steps2 = sum(steps), median = median(steps), mean = mean(steps))
 #printing the first 15 rows of the data
-kable(head(df, 15), format = "simple")
+kable(head(df, 15), format = "html)
 
 df %>% 
   ggplot(aes(total_daily_steps2)) +
