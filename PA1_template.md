@@ -4,6 +4,7 @@ output:
   html_document:
     keep_md: true
 ---
+
 This is my submission to the first course project of Reproducible Research[1] —— the fifth course of the John Hopkin's Data Science Specialization on Coursera. This assignment makes use of data[2] from a personal activity monitoring device. This device collects data at 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day. The code chunk below shows the global options I have setup for the analysis.
 
 
@@ -70,28 +71,111 @@ column_names <- c("Date", "Total Steps per Day",
                   "Mean Total Steps per day",
                   "Median Total Steps per day")
 #printing out the first 15 rows of the dataset
-head(data_total_daily_steps, 15) %>% kable(format = "simple", col.names = column_names)
+head(data_total_daily_steps, 15) %>% kable(format = "html", col.names = column_names)
 ```
 
-
-
-Date          Total Steps per Day   Mean Total Steps per day   Median Total Steps per day
------------  --------------------  -------------------------  ---------------------------
-2012-10-02                    126                    0.43750                            0
-2012-10-03                  11352                   39.41667                            0
-2012-10-04                  12116                   42.06944                            0
-2012-10-05                  13294                   46.15972                            0
-2012-10-06                  15420                   53.54167                            0
-2012-10-07                  11015                   38.24653                            0
-2012-10-09                  12811                   44.48264                            0
-2012-10-10                   9900                   34.37500                            0
-2012-10-11                  10304                   35.77778                            0
-2012-10-12                  17382                   60.35417                            0
-2012-10-13                  12426                   43.14583                            0
-2012-10-14                  15098                   52.42361                            0
-2012-10-15                  10139                   35.20486                            0
-2012-10-16                  15084                   52.37500                            0
-2012-10-17                  13452                   46.70833                            0
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Date </th>
+   <th style="text-align:right;"> Total Steps per Day </th>
+   <th style="text-align:right;"> Mean Total Steps per day </th>
+   <th style="text-align:right;"> Median Total Steps per day </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 2012-10-02 </td>
+   <td style="text-align:right;"> 126 </td>
+   <td style="text-align:right;"> 0.43750 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-03 </td>
+   <td style="text-align:right;"> 11352 </td>
+   <td style="text-align:right;"> 39.41667 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-04 </td>
+   <td style="text-align:right;"> 12116 </td>
+   <td style="text-align:right;"> 42.06944 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-05 </td>
+   <td style="text-align:right;"> 13294 </td>
+   <td style="text-align:right;"> 46.15972 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-06 </td>
+   <td style="text-align:right;"> 15420 </td>
+   <td style="text-align:right;"> 53.54167 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-07 </td>
+   <td style="text-align:right;"> 11015 </td>
+   <td style="text-align:right;"> 38.24653 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-09 </td>
+   <td style="text-align:right;"> 12811 </td>
+   <td style="text-align:right;"> 44.48264 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-10 </td>
+   <td style="text-align:right;"> 9900 </td>
+   <td style="text-align:right;"> 34.37500 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-11 </td>
+   <td style="text-align:right;"> 10304 </td>
+   <td style="text-align:right;"> 35.77778 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-12 </td>
+   <td style="text-align:right;"> 17382 </td>
+   <td style="text-align:right;"> 60.35417 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-13 </td>
+   <td style="text-align:right;"> 12426 </td>
+   <td style="text-align:right;"> 43.14583 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-14 </td>
+   <td style="text-align:right;"> 15098 </td>
+   <td style="text-align:right;"> 52.42361 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-15 </td>
+   <td style="text-align:right;"> 10139 </td>
+   <td style="text-align:right;"> 35.20486 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-16 </td>
+   <td style="text-align:right;"> 15084 </td>
+   <td style="text-align:right;"> 52.37500 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2012-10-17 </td>
+   <td style="text-align:right;"> 13452 </td>
+   <td style="text-align:right;"> 46.70833 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table>
 
 
 
@@ -235,7 +319,7 @@ mutate(day_type = as.factor(ifelse(day_type <= 5, "Weekday", "Weekend")))  %>%
     plot.background = element_blank(),
     axis.text = element_text(colour = "black"),
     axis.title = element_text(colour = "black", face = "bold"),
-    plot.title = element_text(colour = "black", face = "bold", hjust = "1", size = 13),
+    plot.title = element_text(colour = "black", face = "bold", hjust = "1", size = 8),
     strip.background = element_rect(fill = "black"),
     strip.text = element_text(color = "white", face = "bold", hjust = 0.5)
   )
